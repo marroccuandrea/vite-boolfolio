@@ -1,42 +1,46 @@
 <script>
-import axios from 'axios';
-import {store} from './data/store'
+import axios from "axios";
+import { store } from "./data/store";
+import ProjectCard from "./components/ProjectCard.vue";
 
 export default {
-    data(){
-      return {
-
-      }
-    },
-
-    methods:{
-      getApi(){
-        axios.get(store.apiUrl)
-        .then(result => {
-            console.log(result.data);
+  name: "App",
+  components: {
+    ProjectCard,
+  },
+  data() {
+    return {
+      projects: [],
+    };
+  },
+  methods: {
+    getApi() {
+      axios
+        .get(store.apiUrl)
+        .then((result) => {
+          this.projects = result.data;
+          console.log(result.data);
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error.message);
-        })
-      }
-
+        });
     },
+  },
 
-    mounted(){
-      this.getApi();
-
-    },
-  }
+  mounted() {
+    this.getApi();
+  },
+};
 </script>
 
 <template>
-  <div>
-prova
+  <div class="container">
+    <div class="row">
+      <div class="col-12" v-for="project in projects" :key="project.id">
+        <ProjectCard :project="project" />
+      </div>
+    </div>
   </div>
 </template>
 
-
-
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
