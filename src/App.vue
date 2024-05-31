@@ -34,9 +34,10 @@ export default {
 </script>
 
 <template>
-  <div class="container">
+  <div class="container mt-5">
+    <h1>I miei progetti</h1>
     <div class="row">
-      <div class="col-12" v-for="project in projects" :key="project.id">
+      <div class="col" v-for="project in projects" :key="project.id">
         <ProjectCard :project="project" />
       </div>
     </div>
