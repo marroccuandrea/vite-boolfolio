@@ -1,24 +1,24 @@
 <script>
 import axios from "axios";
 import { store } from "./data/store";
-import ProjectCard from "./components/ProjectCard.vue";
+import Main from "./components/Main.vue";
 
 export default {
-  name: "App",
+  
   components: {
-    ProjectCard,
+    Main,
   },
   data() {
     return {
-      projects: [],
-    };
+      store,
+    }
   },
   methods: {
     getApi() {
       axios
-        .get(store.apiUrl)
+        .get(this.store.apiUrl)
         .then((result) => {
-          this.projects = result.data;
+          this.store.projects = result.data;
           console.log(result.data);
         })
         .catch((error) => {
@@ -34,14 +34,7 @@ export default {
 </script>
 
 <template>
-  <div class="container mt-5">
-    <h1>I miei progetti</h1>
-    <div class="row">
-      <div class="col" v-for="project in projects" :key="project.id">
-        <ProjectCard :project="project" />
-      </div>
-    </div>
-  </div>
+  <Main />
 </template>
 
 <style lang="scss" scoped></style>
