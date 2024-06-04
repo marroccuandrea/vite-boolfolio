@@ -17,13 +17,29 @@ import Loader from '../components/partials/Loader.vue'
             }
         },
         methods:{
-            getApi(){
+            getApi(apiUrl, parameter = ""){
                 this.loading = true
-                axios.get(store.apiUrl)
+                axios.get(store.apiUrl + parameter)
                 .then(result => {
                     this.loading = false
-                    console.log(result.data);
-                    this.store.projects = result.data;
+
+
+                    switch (parameter) {
+                        case 'tecnologies':
+                            this.store.tecnologies = result.data
+                            break;
+
+                        case 'types':
+                            this.store.types = result.data
+                            break;
+                    
+                        default:
+                            this.store.projects = result.data;
+                            break;
+                    }
+
+                    // console.log(result.data);
+                    // this.store.projects = result.data;
                 })
                 .catch(error => {
                     this.loading = false
@@ -32,9 +48,12 @@ import Loader from '../components/partials/Loader.vue'
             }
         },
         mounted(){
-            this.getApi();
+            this.getApi(store.apiUrl, 'projects');
+            this.getApi(store.apiUrl, 'tecnologies');
+            this.getApi(store.apiUrl, 'types');
         },
         name: 'Projects',
+        
     }
 </script>
 
