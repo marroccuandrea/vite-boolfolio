@@ -21,12 +21,11 @@ export default {
         <span v-for="tecnology in store.tecnologies" :key="`t-${tecnology.id}`" class="badge text-bg-warning mx-2">{{ tecnology.title }}</span>
       </div>
       <div class="types">
-        <span v-for="type in store.types" :key="`t-${type.id}`" class="badge text-bg-success mx-2">{{ type.title }}</span>    
+        <span v-for="item in store.types" :key="`t-${item.id}`" class="badge text-bg-success mx-2">{{ item.title }}</span>    
       </div>
         <div class="row row-cols-4">           
             <ProjectCard v-for="project in store.projects" :key="project.id" :project="project"/>                   
         </div>
-        
     </div>
 </template>
 
