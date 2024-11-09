@@ -102,6 +102,9 @@ export default {
   .tag {
     opacity: 0;
     animation: fadeInUp 0.5s ease forwards;
+    &:hover {
+      cursor: pointer;
+    }
 
     @for $i from 1 through 20 {
       &:nth-child(#{$i}) {
