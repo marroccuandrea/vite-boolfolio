@@ -1,29 +1,22 @@
 <script>
-
-import Header from './components/partials/Header.vue';
+import Header from "./components/partials/Header.vue";
 
 export default {
-  components:{
-    Header
+  components: {
+    Header,
   },
 
   data() {
-    return {
-      
-    }
+    return {};
   },
-  methods: {
-    
-  },
+  methods: {},
 
-  mounted() {
-    
-  },
+  mounted() {},
 };
 </script>
 
 <template>
-  <div class="container mt-5">
+  <div class="container">
     <Header />
   </div>
   <div class="container">

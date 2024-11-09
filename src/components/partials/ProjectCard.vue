@@ -11,27 +11,32 @@ export default {
 </script>
 
 <template>
-  
-   
-  <div class="col">
-    <div class="card mt-5" style="width: 18rem">
-        <!-- <img src="..." class="card-img-top" alt="..." /> -->
-      <div class="card-body">
-        <h5 class="card-title">{{ project.title }}</h5>
-        <span v-for="tecnology in project.tecnologies" class="badge text-bg-warning mx-2 mb-4">{{ tecnology.title }}</span>
-        <!-- <p class="card-text">
-          Some quick example text to build on the card title and make up the bulk
-          of the card's content.
-        </p> -->
-        <router-link :to="{ name: 'projectDetail', params:{slug: project.slug} }" class="btn btn-warning">Vai al progetto</router-link>
+  <div class="column is-one-third">
+    <div class="card">
+      <div class="card-content">
+        <p class="title is-4 has-text-white">{{ project.title }}</p>
+
+        <div class="tags are-medium mb-4">
+          <span
+            v-for="tecnology in project.tecnologies"
+            class="tag is-warning is-light"
+          >
+            {{ tecnology.title }}
+          </span>
+        </div>
+
+        <router-link
+          :to="{ name: 'projectDetail', params: { slug: project.slug } }"
+          class="button is-warning is-outlined"
+        >
+          <span>Vai al progetto</span>
+          <span class="icon">
+            <i class="fas fa-arrow-right"></i>
+          </span>
+        </router-link>
       </div>
     </div>
   </div>
-
-
-  
 </template>
 
-
 <style lang="scss" scoped></style>
-
