@@ -9,7 +9,28 @@ export default {
   data() {
     return {
       store,
+      selectedType: null,
     };
+  },
+  computed: {
+    filteredProjects() {
+      if (this.selectedType) {
+        return this.store.projects.filter(
+          (project) => project.type_id === this.selectedType.id
+        );
+      } else {
+        return this.store.projects;
+      }
+    },
+  },
+  methods: {
+    selectType(type) {
+      if (this.selectedType && this.selectedType.id === type.id) {
+        this.selectedType = null; // Deseleziona se si clicca sullo stesso pulsante due volte
+      } else {
+        this.selectedType = type;
+      }
+    },
   },
 };
 </script>
@@ -38,10 +59,15 @@ export default {
 
       <!-- Tipi di progetto -->
       <div class="tags is-centered mb-6">
+        <p>Seleziona per filtrare i progetti:</p>
         <span
           v-for="item in store.types"
           :key="`t-${item.id}`"
-          class="tag is-medium is-success is-light has-glow"
+          class="tag is-medium is-primary has-glow"
+          :class="{
+            'is-selected': selectedType && selectedType.id === item.id,
+          }"
+          @click="selectType(item)"
         >
           {{ item.title }}
         </span>
@@ -50,7 +76,7 @@ export default {
       <!-- Griglia progetti -->
       <div class="columns is-multiline">
         <ProjectCard
-          v-for="project in store.projects"
+          v-for="project in filteredProjects"
           :key="project.id"
           :project="project"
           class="column is-one-quarter"
@@ -112,6 +138,10 @@ export default {
       }
     }
   }
+}
+.tag.is-selected {
+  background-color: orange; /* Colore di sfondo per il tag selezionato */
+  color: #fff; /* Colore del testo per il tag selezionato */
 }
 
 @keyframes fadeInUp {
