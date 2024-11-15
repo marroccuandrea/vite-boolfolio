@@ -82,8 +82,8 @@ export default {
 .box {
   max-width: 800px;
   margin: 2rem auto;
-  background-color: rgba(13, 25, 48, 0.8) !important;
-  backdrop-filter: blur(10px);
+  background-color: rgba(119, 119, 119, 0.1) !important;
+  backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 </style>

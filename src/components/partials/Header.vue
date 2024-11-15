@@ -86,7 +86,7 @@ export default {
 
 <style lang="scss" scoped>
 .navbar {
-  background-color: rgba(13, 25, 48, 0.9);
+  background-color: rgba(0, 0, 0, 0);
   backdrop-filter: blur(10px);
 
   // Stile per il burger menu
@@ -107,7 +107,7 @@ export default {
 
   // Stile per il menu mobile
   .navbar-menu {
-    background-color: rgba(13, 25, 48, 0.95);
+    background-color: rgba(0, 0, 0, 0);
     backdrop-filter: blur(10px);
 
     &.is-active {

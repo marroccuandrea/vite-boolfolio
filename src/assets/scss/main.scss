@@ -8,23 +8,20 @@ body {
     background-color: #0a192f; // Blu scuro spaziale
     color: #ffffff;
     min-height: 100vh;
-    background-image: 
-        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
-        radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
-        radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px);
-    background-size: 550px 550px, 350px 350px, 250px 250px;
-    background-position: 0 0, 40px 60px, 130px 270px;
+    background-image: url(/src/assets/Space-background.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 // Stili personalizzati per i componenti Bulma
 .card {
-    background-color: rgba(13, 25, 48, 0.8);
-    backdrop-filter: blur(10px);
+    background-color: rgba(119, 119, 119, 0.1);
+    backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .navbar {
-    background-color: rgba(13, 25, 48, 0.9);
+    background-color: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(10px);
 }
 
